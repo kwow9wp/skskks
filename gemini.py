@@ -317,8 +317,11 @@ class StreamingParser:
         return content_to_send, thinking_for_colab, is_complete
 
 # Proxy endpoint for JanitorAI
-@app.route('/', methods=["GET", "POST"])
-@app.route('/v1/chat/completions', methods=["POST"])
+      
+@app.route('/', methods=["GET"])
+@app.route('/v1/chat/completions', methods=["GET"]) # Добавим для удобства проверки
+
+@app.route('/', methods=["POST"])
 def handle_proxy():
     if request.method == "GET":
         return jsonify({
