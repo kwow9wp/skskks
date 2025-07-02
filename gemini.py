@@ -79,19 +79,6 @@ reminder = "Remember to use <think>...</think> for your reasoning and <response>
 app = Flask(__name__)
 CORS(app)
 
-      
-# # Setup tunnel provider
-# try:
-#     if tunnel_provider == "Cloudflare":
-#         from flask_cloudflared import run_with_cloudflared
-#         run_with_cloudflared(app)
-#     else:
-#         from flask_lt import run_with_lt
-#         run_with_lt(app)
-# except Exception as e:
-#     print(f"Error setting up tunnel: {e}")
-#     print("Falling back to local-only mode. The proxy will only be accessible on this Colab instance.")
-
     
 
 # Error response formatter
