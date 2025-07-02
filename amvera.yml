@@ -9,4 +9,4 @@ run:
   # Вот эта команда - ключевая!
   # Она запускает Gunicorn, привязывает его к нужному хосту и порту ($PORT)
   # и указывает, где находится ваше Flask-приложение (в файле gemini, объект app)
-  command: gunicorn --workers 1 --timeout 120 --bind 0.0.0.0:$PORT gemini:app
+  command: gunicorn --bind 0.0.0.0:$PORT gemini:app
