@@ -3,12 +3,10 @@ version: null
 meta:
   environment: python
   toolchain:
-    name: pip
-    version: 3.11
-build:
-  requirementsPath: requirements.txt
+    name: python
+    version: 3.8 # Укажите вашу версию
 run:
-  scriptName: gemini.py
-  persistenceMount: /data
-  containerPort: 80
-  servicePort: 80
+  # Вот эта команда - ключевая!
+  # Она запускает Gunicorn, привязывает его к нужному хосту и порту ($PORT)
+  # и указывает, где находится ваше Flask-приложение (в файле gemini, объект app)
+  command: gunicorn --bind 0.0.0.0:$PORT gemini:app
