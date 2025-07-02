@@ -79,17 +79,20 @@ reminder = "Remember to use <think>...</think> for your reasoning and <response>
 app = Flask(__name__)
 CORS(app)
 
-# Setup tunnel provider
-try:
-    if tunnel_provider == "Cloudflare":
-        from flask_cloudflared import run_with_cloudflared
-        run_with_cloudflared(app)
-    else:
-        from flask_lt import run_with_lt
-        run_with_lt(app)
-except Exception as e:
-    print(f"Error setting up tunnel: {e}")
-    print("Falling back to local-only mode. The proxy will only be accessible on this Colab instance.")
+      
+# # Setup tunnel provider
+# try:
+#     if tunnel_provider == "Cloudflare":
+#         from flask_cloudflared import run_with_cloudflared
+#         run_with_cloudflared(app)
+#     else:
+#         from flask_lt import run_with_lt
+#         run_with_lt(app)
+# except Exception as e:
+#     print(f"Error setting up tunnel: {e}")
+#     print("Falling back to local-only mode. The proxy will only be accessible on this Colab instance.")
+
+    
 
 # Error response formatter
 def create_error_response(error_message):
@@ -725,7 +728,6 @@ def health_check():
         "tunnel_provider": tunnel_provider,
         "parsing_mode": "lenient"
     })
-
 if __name__ == '__main__':
     print("\n" + "=" * 60)
     print(" Lenient Flask server starting...")
